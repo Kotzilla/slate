@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,10 +101,8 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -133,22 +131,15 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'sbb'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<pre class="highlight php"><code>http://lsbb-visueller-wegweiser.api.buzzwoo.de/
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">sbb</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">sbb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'sbb'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">sbb</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">status:</span><span class="w"> </span><span class="nt">"success"</span><span class="err">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"welcome to the API"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <blockquote>
 <p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
@@ -167,24 +158,16 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <h1 id="kittens">Kittens</h1>
 
 <h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'sbb'</span>
+<pre class="highlight php"><code>require 'sbb'
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+api = sbb::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">sbb</span>
+<pre class="highlight json"><code><span class="err">import</span><span class="w"> </span><span class="err">sbb</span><span class="w">
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">sbb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'sbb'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">sbb</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+</span><span class="err">api</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">sbb.authorize('meowmeowmeow')</span><span class="w">
+</span><span class="err">api.kittens.get()</span><span class="w">
+</span></code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -239,24 +222,16 @@ Remember — a happy kitten is an authenticated kitten!
 </aside>
 
 <h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'sbb'</span>
+<pre class="highlight php"><code>require 'sbb'
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+api = sbb::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">sbb</span>
+<pre class="highlight json"><code><span class="err">import</span><span class="w"> </span><span class="err">sbb</span><span class="w">
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">sbb</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">sbb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'sbb'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">sbb</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+</span><span class="err">api</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">sbb.authorize('meowmeowmeow')</span><span class="w">
+</span><span class="err">api.kittens.get(</span><span class="mi">2</span><span class="err">)</span><span class="w">
+</span></code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -353,10 +328,8 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
